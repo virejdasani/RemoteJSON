@@ -1,18 +1,24 @@
 # RemoteJSON
 
 ## How it works
-- Make a folder with app name
-- Add JSON in the `appname/index.html` file
+- Make a folder in this repo with app name
+- Add JSON in the `APPNAME/index.html` file
 - Add this to your javascript
 ```javascript
-// For app update
-fetch('https://virejdasani.github.io/RemoteJSON/APPNAME/index.html')
+// For app update, if an update is available, the updateAvailable in the RemoteJSON repo will be updated to yes. That will result in the code below being executed
+fetch('https://virejdasani.github.io/RemoteJSON/Geniemoji/index.html')
     .then((response) => {
         return response.json()
     })
     .then((data) => {
-        if (data.updateAvailable == "yes") {
-            alert("yes")
+        // If update is available, and this version is not the latest one, the update div will no longer be empty. It will have the following HTML
+        if (data.updateAvailable == "yes" && data.latestVersion !== "1.0.1") {
+            document.getElementById("update").innerHTML = `
+                <div id="update">
+                    ${data.updateText}
+                    Download update <!-- (${data.latestVersion}) --> <a href="${data.updateURL}" target="_blank">here</a>
+                </div>
+            `
         }
     })
     .catch((err) => {
