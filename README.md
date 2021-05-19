@@ -19,3 +19,8 @@ fetch('https://virejdasani.github.io/RemoteJSON/APPNAME/index.html')
         console.log(err)
     })
 ```
+
+Sample JSON:
+```json
+{"updateAvailable":"yes","updateVersion":"1.0.1","updateText":"An update is available","updateURL":"https://github.com/virejdasani/Geniemoji/releases/tag/v1.0.0"}
+```
