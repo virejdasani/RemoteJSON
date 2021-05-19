@@ -26,7 +26,22 @@ fetch('https://virejdasani.github.io/RemoteJSON/Geniemoji/index.html')
     })
 ```
 
-Sample JSON:
+Sample JSON to add to `index.html`:
 ```json
-{"updateAvailable":"yes","updateVersion":"1.0.1","updateText":"An update is available","updateURL":"https://github.com/virejdasani/Geniemoji/releases/tag/v1.0.0"}
+{"updateAvailable":"no","latestVersion":"1.0.2","updateText":"An new version of Geniemoji is available!","updateURL":"https://github.com/virejdasani/Geniemoji/releases/tag/v1.0.2"}
+```
+
+### To open in external browser with electron
+- `$ npm install open`
+- Add to main.js:
+```
+const open = require('open')
+
+// CreateWindow function()
+
+    // This opens all links with `target="_blank"` in external browser
+    window.webContents.on('new-window', function (event, url) {
+        event.preventDefault()
+        open(url)
+    })
 ```
