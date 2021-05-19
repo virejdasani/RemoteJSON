@@ -1,7 +1,7 @@
 # RemoteJSON
 
 ## How it works
-```
+```javascript
 // For app update
 fetch('https://virejdasani.github.io/RemoteJSON/Geniemoji/index.html')
     .then((response) => {
