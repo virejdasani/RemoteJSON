@@ -34,7 +34,7 @@ Sample JSON to add to `index.html`:
 ### To open in external browser with electron
 - `$ npm install open`
 - Add to main.js:
-```
+```javascript
 const open = require('open')
 
 // CreateWindow function()
