@@ -5,6 +5,8 @@
 - Add JSON in the `APPNAME/index.html` file
 - Add this to your javascript
 ```javascript
+var appVersion = "1.0.0"
+
 // For app update, if an update is available, the updateAvailable in the RemoteJSON repo will be updated to yes. That will result in the code below being executed
 fetch('https://virejdasani.github.io/RemoteJSON/Geniemoji/index.html')
     .then((response) => {
@@ -12,7 +14,7 @@ fetch('https://virejdasani.github.io/RemoteJSON/Geniemoji/index.html')
     })
     .then((data) => {
         // If update is available, and this version is not the latest one, the update div will no longer be empty. It will have the following HTML
-        if (data.updateAvailable == "yes" && data.latestVersion !== "1.0.1") {
+        if (data.updateAvailable == "yes" && data.latestVersion !== appVersion) {
             document.getElementById("update").innerHTML = `
                 <div id="update">
                     ${data.updateText}
